@@ -1,189 +1,137 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nexus — Official Download</title>
 
-<!-- Import font mirip GVR -->
+<!-- Font mirip GVR -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        background-color: #000;
-        font-family: 'Poppins', sans-serif;
-        color: white;
-    }
+  :root{
+    --cyan:#00f7ff;
+    --cyan-d:#00d4ff;
+    --ink:#000;
+    --panel:#191919;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:#000;color:#fff;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  }
 
-    /* HEADER */
-    .header {
-        background-color: #000;
-        padding: 14px 16px;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .logo {
-        width: 28px;
-        height: 28px;
-        margin-right: 10px;
-        background-color: #0ff;
-        color: #000;
-        font-weight: 600;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 6px;
-        filter: drop-shadow(0 0 5px rgba(0,255,255,0.7));
-    }
-    .header-text {
-        display: flex;
-        flex-direction: column;
-    }
-    .header-title {
-        font-size: 16px;
-        font-weight: 600;
-    }
-    .subheader {
-        font-size: 12px;
-        color: #888;
-    }
+  /* layout wrapper biar compact & rapi */
+  .wrap{max-width:520px;margin:0 auto}
 
-    /* TITLE */
-    .title {
-        text-align: center;
-        margin-top: 24px;
-        font-size: 22px;
-        font-weight: 600;
-    }
-    .subtitle {
-        text-align: center;
-        color: #0ff;
-        font-size: 13px;
-        margin-bottom: 20px;
-        font-weight: 500;
-    }
+  /* HEADER kiri + logo N */
+  .header{
+    display:flex;align-items:center;gap:10px;
+    padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);
+    background:#000;
+  }
+  .logo{
+    width:28px;height:28px;border-radius:6px;background:var(--cyan);
+    color:#001a1c;font-weight:700;font-size:18px;display:grid;place-items:center;
+    filter:drop-shadow(0 0 6px rgba(0,247,255,.6));
+  }
+  .header-text{display:flex;flex-direction:column}
+  .header-title{font-size:16px;font-weight:600;line-height:1}
+  .subheader{font-size:12px;color:#8b8b8b;line-height:1.2;margin-top:4px}
 
-    /* DESCRIPTION */
-    .description {
-        text-align: center;
-        font-size: 11px;
-        color: #ccc;
-        padding: 0 20px;
-        font-weight: 400;
-        line-height: 1.4;
-    }
+  /* TITLE tengah */
+  .title{margin:22px 0 6px;text-align:center;font-size:22px;font-weight:600}
+  .subtitle{margin:0 0 16px;text-align:center;color:var(--cyan);font-size:13px;font-weight:500}
 
-    /* BUTTONS */
-    .btn-primary {
-        display: block;
-        width: 48%;
-        margin: 0 auto 10px;
-        background: linear-gradient(90deg, #00f7ff, #00d4ff);
-        color: #000;
-        font-weight: 600;
-        text-align: center;
-        padding: 10px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-size: 14px;
-        box-shadow: 0 4px 10px rgba(0, 255, 255, 0.35);
-    }
-    .btn-secondary {
-        display: block;
-        width: 48%;
-        margin: 0 auto;
-        background-color: #222;
-        color: #0ff;
-        font-weight: 600;
-        text-align: center;
-        padding: 10px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-size: 14px;
-    }
-    .note {
-        text-align: center;
-        color: #777;
-        font-size: 11px;
-        margin-top: 6px;
-    }
+  /* DESCRIPTION kecil */
+  .description{
+    text-align:center;font-size:11px;color:#cfcfcf;line-height:1.4;margin:0 20px 14px;
+  }
 
-    /* CARD SECTIONS */
-    .card {
-        background-color: rgba(25,25,25,0.9);
-        margin: 20px;
-        padding: 16px;
-        border-radius: 14px;
-        text-align: center;
-    }
-    .card img {
-        width: 26px;
-        height: 26px;
-        margin-bottom: 6px;
-        filter: drop-shadow(0 0 4px rgba(0,255,255,0.7));
-    }
-    .card-title {
-        font-weight: 600;
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
-    .card-text {
-        font-size: 12px;
-        color: #ccc;
-        line-height: 1.4;
-        font-weight: 400;
-    }
+  /* BUTTONS lebih kecil (mirip GVR) */
+  .btn-primary,.btn-secondary{
+    display:block;width:48%;margin:0 auto 10px;text-align:center;
+    padding:10px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;
+  }
+  .btn-primary{
+    background:linear-gradient(90deg,var(--cyan),var(--cyan-d));color:#001a1c;
+    box-shadow:0 6px 14px rgba(0,247,255,.28);
+  }
+  .btn-secondary{
+    background:#202020;color:var(--cyan);
+    border:1px solid rgba(0,247,255,.18);
+  }
+  .note{font-size:11px;color:#7a7a7a;text-align:center;margin-top:2px}
+
+  /* CARD – DIPERKECIL + STROKE CYAN TIPIS */
+  .cards{padding:8px 0 18px}
+  .card{
+    background:rgba(25,25,25,.9);
+    margin:12px 20px; padding:12px; border-radius:12px; text-align:center;
+    border:1px solid rgba(0,247,255,.18);
+    box-shadow:0 8px 22px rgba(0,247,255,.06), inset 0 0 0.5px rgba(255,255,255,.04);
+  }
+  .card img{
+    width:22px;height:22px;margin-bottom:4px;user-select:none;
+    filter:drop-shadow(0 0 4px rgba(0,247,255,.55));
+  }
+  .card-title{font-size:14px;font-weight:600;margin:2px 0 4px}
+  .card-text{font-size:11px;color:#cfcfcf;line-height:1.38;margin:0}
+
+  /* sedikit responsif */
+  @media (min-width:420px){
+    .btn-primary,.btn-secondary{width:44%}
+  }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="header">
+  <!-- HEADER -->
+  <header class="header">
     <div class="logo">N</div>
     <div class="header-text">
-        <div class="header-title">Nexus — Official Download</div>
-        <div class="subheader">nexus.dev</div>
+      <div class="header-title">Nexus — Official Download</div>
+      <div class="subheader">nexus.dev</div>
     </div>
-</div>
+  </header>
 
-<div class="title">Nexus GEN-4</div>
-<div class="subtitle">Nexus Dev</div>
+  <!-- HERO -->
+  <h1 class="title">Nexus GEN-4</h1>
+  <div class="subtitle">Nexus Dev</div>
 
-<p class="description">
-    <b>Nexus: Reborn</b> adalah aplikasi Game Booster untuk meningkatkan performa gaming di Android. 
-    Menggunakan <span style="color:#0ff;">Shizuku Permissions</span> untuk kontrol penuh tanpa root, 
+  <p class="description">
+    <b>Nexus: Reborn</b> adalah aplikasi Game Booster untuk meningkatkan performa gaming di Android.
+    Menggunakan <span style="color:var(--cyan)">Shizuku Permissions</span> untuk kontrol penuh tanpa root,
     memudahkan optimasi secara aman dan efisien.
-</p>
+  </p>
 
-<a href="https://github.com/nexussctt/download/raw/1f1c96c66640c9b12701f92f25ccf46bee70f8f0/%F0%9D%97%95%F0%9D%97%BC%F0%9D%98%81%20%F0%9D%97%94%F0%9D%97%BB%F0%9D%98%81%F0%9D%97%B6%20%F0%9D%97%9F%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B8%20-%20@StackBreakerZTeam.zip" class="btn-primary" target="_blank">Download</a>
-<a href="https://wa.me/6282225395087" class="btn-secondary" target="_blank">WhatsApp</a>
-<div class="note">*Hubungi WhatsApp untuk info lebih lanjut</div>
+  <!-- BUTTONS -->
+  <!-- Ganti link MediaFire di bawah dengan link aslimu -->
+  <a href="https://www.mediafire.com/file/abcdefg/nexus.apk" class="btn-primary" target="_blank" rel="noopener">Download</a>
+  <a href="https://wa.me/6282225395087" class="btn-secondary" target="_blank" rel="noopener">WhatsApp</a>
+  <div class="note">*Hubungi WhatsApp untuk info lebih lanjut</div>
 
-<div class="card">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/layers.png" alt="">
-    <div class="card-title">Nexus Panel</div>
-    <div class="card-text">
-        Menu mengambang inovatif untuk memantau performa real-time dan kontrol langsung Nexus tanpa keluar dari game.
-    </div>
+  <!-- CARDS (LEBIH KECIL & KEREN) -->
+  <section class="cards">
+    <article class="card">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/layers.png" alt="">
+      <div class="card-title">Nexus Panel</div>
+      <p class="card-text">Menu mengambang untuk pantau performa real-time & kontrol Nexus tanpa keluar dari game.</p>
+    </article>
+
+    <article class="card">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/maintenance.png" alt="">
+      <div class="card-title">Nx-Modules</div>
+      <p class="card-text">Plugin berbasis Shizuku untuk kontrol luas & kustomisasi performa secara presisi.</p>
+    </article>
+
+    <article class="card">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="">
+      <div class="card-title">Nexus Settings</div>
+      <p class="card-text">Panel pengaturan lengkap untuk menyesuaikan konfigurasi Nexus sesuai kebutuhan.</p>
+    </article>
+  </section>
+
 </div>
-
-<div class="card">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/maintenance.png" alt="">
-    <div class="card-title">Nx-Modules</div>
-    <div class="card-text">
-        Fitur berbasis plugin dengan izin Shizuku untuk kontrol penuh dan kustomisasi gaming secara maksimal.
-    </div>
-</div>
-
-<div class="card">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="">
-    <div class="card-title">Nexus Settings</div>
-    <div class="card-text">
-        Panel pengaturan lengkap untuk mengatur seluruh konfigurasi Nexus dengan detail.
-    </div>
-</div>
-
 </body>
 </html>
