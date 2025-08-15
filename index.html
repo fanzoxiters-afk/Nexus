@@ -24,13 +24,13 @@
   /* HEADER */
   .header{
     display:flex;align-items:center;gap:10px;
-    padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);
+    padding:14px 16px;
     background:#000;
   }
   .logo{
     width:28px;height:28px;border-radius:6px;background:var(--cyan);
     color:#001a1c;font-weight:700;font-size:18px;display:grid;place-items:center;
-    filter:drop-shadow(0 0 6px rgba(0,247,255,.6));
+    filter:drop-shadow(0 0 8px rgba(0,247,255,.8));
   }
   .header-text{display:flex;flex-direction:column}
   .header-title{font-size:16px;font-weight:600;line-height:1}
@@ -49,14 +49,21 @@
   .btn-primary,.btn-secondary{
     display:block;width:48%;margin:0 auto 10px;text-align:center;
     padding:10px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;
+    transition:0.2s;
   }
   .btn-primary{
     background:linear-gradient(90deg,var(--cyan),var(--cyan-d));color:#001a1c;
-    box-shadow:0 6px 14px rgba(0,247,255,.28);
+    box-shadow:0 0 10px rgba(0,247,255,.7), 0 0 20px rgba(0,247,255,.4);
+  }
+  .btn-primary:hover{
+    box-shadow:0 0 14px rgba(0,247,255,1), 0 0 26px rgba(0,247,255,.6);
   }
   .btn-secondary{
     background:#202020;color:var(--cyan);
-    border:1px solid rgba(0,247,255,.18);
+    box-shadow:0 0 8px rgba(0,247,255,.4);
+  }
+  .btn-secondary:hover{
+    box-shadow:0 0 12px rgba(0,247,255,.6);
   }
   .note{font-size:11px;color:#7a7a7a;text-align:center;margin-top:2px}
 
@@ -70,8 +77,12 @@
     background:rgba(25,25,25,.9);
     margin:10px 0;padding:12px;
     border-radius:12px;text-align:center;
-    border:1px solid rgba(0,247,255,.18);
-    box-shadow:0 8px 22px rgba(0,247,255,.06), inset 0 0 0.5px rgba(255,255,255,.04);
+    border:none;
+    box-shadow:0 0 12px rgba(0,247,255,.18), 0 0 24px rgba(0,247,255,.08);
+    transition:0.2s;
+  }
+  .card:hover{
+    box-shadow:0 0 14px rgba(0,247,255,.3), 0 0 28px rgba(0,247,255,.12);
   }
   .card img{
     width:22px;height:22px;margin-bottom:4px;user-select:none;
