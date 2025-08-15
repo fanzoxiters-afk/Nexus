@@ -23,15 +23,9 @@
         font-family: 'Poppins', sans-serif;
         overflow-x: hidden;
     }
-    canvas#particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
+
     .wrap {
         position: relative;
-        z-index: 1;
         max-width: 500px;
         margin: 0 auto;
         padding: 0 14px;
@@ -81,21 +75,21 @@
     .description { font-size: 11px; color: #ccc; text-align: center; margin-bottom: 14px; animation: fadeIn 0.6s ease forwards; }
     .btn { display: block; text-align: center; text-decoration: none; padding: 8px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 8px; transition: transform 0.2s ease,box-shadow 0.2s ease; }
     .btn-download { 
-        background: rgba(0, 247, 255, 0.85); /* sedikit transparan */
+        background: rgba(0, 247, 255, 0.85);
         color: #000; 
         animation: pulse 2s infinite ease-in-out; 
     }
     .btn-download:hover { box-shadow: 0 0 12px var(--cyan); }
     .btn-wa { 
-        background: rgba(34, 34, 34, 0.85); /* sedikit transparan */
+        background: rgba(34, 34, 34, 0.85);
         color: var(--cyan); 
     }
     .btn-wa:hover { transform: scale(1.03); box-shadow: 0 0 10px rgba(0,247,255,0.4); }
     .note { font-size: 10px; color: #777; text-align: center; margin-bottom: 14px; }
     .cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
     .card { 
-        background: rgba(18, 18, 18, 0.85); /* agak transparan */
-        backdrop-filter: blur(4px); /* blur tipis */
+        background: rgba(18, 18, 18, 0.85);
+        backdrop-filter: blur(4px);
         border-radius: 10px; 
         padding: 10px; 
         display: flex; 
@@ -121,8 +115,6 @@
 </style>
 </head>
 <body>
-    <canvas id="particles"></canvas>
-
     <div class="wrap">
         <header class="header">
             <div class="logo">N</div>
@@ -179,88 +171,5 @@
 
         <footer>© 2025 Nexus Dev — All Rights Reserved</footer>
     </div>
-
-    <script>
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', function() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
-        });
-
-        class Particle {
-            constructor(x, y, radius) {
-                this.x = x;
-                this.y = y;
-                this.radius = radius;
-                this.vx = (Math.random() - 0.5) * 1;
-                this.vy = (Math.random() - 0.5) * 1;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.fillStyle = '#00f7ff';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        let particlesArray;
-
-        function init() {
-            particlesArray = [];
-            for (let i = 0; i < 80; i++) {
-                let radius = Math.random() * 2 + 1;
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                particlesArray.push(new Particle(x, y, radius));
-            }
-        }
-
-        function connect() {
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let dx = particlesArray[a].x - particlesArray[b].x;
-                    let dy = particlesArray[a].y - particlesArray[b].y;
-                    let distance = Math.sqrt(dx*dx + dy*dy);
-
-                    if (distance < 120) {
-                        ctx.strokeStyle = `rgba(0, 247, 255, ${1 - distance/120})`;
-                        ctx.lineWidth = 0.7;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particlesArray.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            connect();
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-    </script>
 </body>
 </html>
