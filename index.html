@@ -9,139 +9,167 @@
 
     <style>
 :root {
-    --cyan: #00f7ff;
-    --bg-dark: #121212;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #000; color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
-.wrap { position: relative; max-width: 500px; margin: 0 auto; padding: 0 14px; }
+        --cyan: #00f7ff;
+        --bg-dark: #121212;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: #000;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-@keyframes rotateIcon { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .wrap {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 14px;
+    }
 
-.header { display: flex; align-items: center; padding: 14px 0; animation: slideDown 0.6s ease forwards; }
-.logo { background: var(--cyan); color: #000; font-weight: 700; font-size: 16px; border-radius: 6px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; margin-right: 10px; }
-.header-title { font-size: 14px; font-weight: 600; }
-.header-sub { font-size: 11px; color: #999; }
-.title { font-size: 18px; font-weight: 600; text-align: center; margin-top: 14px; animation: fadeIn 0.6s ease forwards; }
-.subtitle { font-size: 12px; color: var(--cyan); text-align: center; margin-bottom: 2px; animation: fadeIn 0.6s ease forwards; }
-.description { font-size: 11px; color: #ccc; text-align: center; margin-bottom: 14px; animation: fadeIn 0.6s ease forwards; }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    @keyframes rotateIcon {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
 
-.btn { font-size: 13px; font-weight: 600; border-radius: 999px; padding: 8px; margin-bottom: 8px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; display: block; width: 100%; text-align: center; border: none; }
-.btn-download { background: rgba(0, 247, 255, 0.85); color: #000; animation: pulse 2s infinite ease-in-out; }
-.btn-download:hover { box-shadow: 0 0 12px var(--cyan); }
-.btn-download:disabled { background: #555; color: #aaa; cursor: not-allowed; animation: none; box-shadow: none; }
-.btn-wa { background: rgba(34, 34, 34, 0.85); color: var(--cyan); }
-.btn-wa:hover { transform: scale(1.03); box-shadow: 0 0 10px rgba(0,247,255,0.4); }
-
-.note { font-size: 10px; color: #777; text-align: center; margin-bottom: 14px; }
-.cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.card { background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(4px); border-radius: 10px; padding: 10px; display: flex; align-items: center; gap: 10px; opacity: 0; transform: translateY(10px); animation: fadeIn 0.5s forwards; }
-.card:nth-child(1) { animation-delay: 0.3s; }
-.card:nth-child(2) { animation-delay: 0.5s; }
-.card:nth-child(3) { animation-delay: 0.7s; }
-.card img { width: 18px; height: 18px; transition: transform 0.4s ease; }
-.card:hover img { animation: rotateIcon 0.6s linear; }
-.card-content { display: flex; flex-direction: column; }
-.card-title { font-size: 12px; font-weight: 600; margin-bottom: 2px; }
-.card-text { font-size: 10px; color: #bbb; line-height: 1.3; }
-
-.changelog { background: rgba(10, 10, 10, 0.85); padding: 12px; border-radius: 8px; margin-bottom: 14px; animation: fadeIn 0.6s ease forwards; backdrop-filter: blur(4px);}
-.changelog h3 { font-size: 13px; color: var(--cyan); margin-bottom: 6px; }
-.changelog ul { list-style: none; font-size: 11px; color: #bbb; padding-left: 0; }
-.changelog li { margin-bottom: 4px; }
-
-footer { font-size: 10px; color: #555; text-align: center; padding: 10px 0; border-top: 1px solid #111; }
+    .header {
+        display: flex;
+        align-items: center;
+        padding: 14px 0;
+        animation: slideDown 0.6s ease forwards;
+    }
+    .logo {
+        background: var(--cyan);
+        color: #000;
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 6px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    .header-title { font-size: 14px; font-weight: 600; }
+    .header-sub { font-size: 11px; color: #999; }
+    .title { font-size: 18px; font-weight: 600; text-align: center; margin-top: 14px; animation: fadeIn 0.6s ease forwards; }
+    .subtitle { font-size: 12px; color: var(--cyan); text-align: center; margin-bottom: 2px; animation: fadeIn 0.6s ease forwards; }
+    .description { font-size: 11px; color: #ccc; text-align: center; margin-bottom: 14px; animation: fadeIn 0.6s ease forwards; }
+    .btn { display: block; text-align: center; text-decoration: none; padding: 8px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 8px; transition: transform 0.2s ease,box-shadow 0.2s ease; }
+    .btn-download { 
+        background: rgba(0, 247, 255, 0.85);
+        color: #000; 
+        animation: pulse 2s infinite ease-in-out; 
+    }
+    .btn-download:hover { box-shadow: 0 0 12px var(--cyan); }
+    .btn-wa { 
+        background: rgba(34, 34, 34, 0.85);
+        color: var(--cyan); 
+    }
+    .btn-wa:hover { transform: scale(1.03); box-shadow: 0 0 10px rgba(0,247,255,0.4); }
+    .note { font-size: 10px; color: #777; text-align: center; margin-bottom: 14px; }
+    .cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .card { 
+        background: rgba(18, 18, 18, 0.85);
+        backdrop-filter: blur(4px);
+        border-radius: 10px; 
+        padding: 10px; 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        opacity: 0; 
+        transform: translateY(10px); 
+        animation: fadeIn 0.5s forwards; 
+    }
+    .card:nth-child(1) { animation-delay: 0.3s; }
+    .card:nth-child(2) { animation-delay: 0.5s; }
+    .card:nth-child(3) { animation-delay: 0.7s; }
+    .card img { width: 18px; height: 18px; transition: transform 0.4s ease; }
+    .card:hover img { animation: rotateIcon 0.6s linear; }
+    .card-content { display: flex; flex-direction: column; }
+    .card-title { font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+    .card-text { font-size: 10px; color: #bbb; line-height: 1.3; }
+    .changelog { background: rgba(10, 10, 10, 0.85); padding: 12px; border-radius: 8px; margin-bottom: 14px; animation: fadeIn 0.6s ease forwards; backdrop-filter: blur(4px);}
+    .changelog h3 { font-size: 13px; color: var(--cyan); margin-bottom: 6px; }
+    .changelog ul { list-style: none; font-size: 11px; color: #bbb; padding-left: 0; }
+    .changelog li { margin-bottom: 4px; }
+    footer { font-size: 10px; color: #555; text-align: center; padding: 10px 0; border-top: 1px solid #111; }
 </style>
 </head>
 <body>
-<div class="wrap">
-    <header class="header">
-        <div class="logo">N</div>
-        <div>
-            <div class="header-title">
-                NEXUS OFFCIAL
-                <div class="header-sub">Panjox.dev</div>
+    <div class="wrap">
+        <header class="header">
+            <div class="logo">N</div>
+            <div>
+                <div class="header-title">
+                    NEXUS OFFCIAL
+                    <div class="header-sub">Panjox.dev</div>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <h1 class="title">GNexus VER-5</h1>
-    <div class="subtitle">PanjoxNXS</div>
-    <p class="description">
-        Nexus adalah aplikasi yang di rancang khusus untuk meningkatkan performance dan meningkatkan pengalaman bermain anda dengan menggunakan <span style="color:var(--cyan)">sistem Shizuku Permission</span> untuk kontrol penuh tanpa akses root.
-    </p>
+        <h1 class="title">GNexus VER-5</h1>
+        <div class="subtitle">PanjoxNXS</div>
+        <p class="description">
+            Nexus adalah aplikasi yang di rancang khusus untuk meningkatkan performance dan meningkatkan pengalaman bermain anda dengan menggunakan <span style="color:var(--cyan)">sistem Shizuku Permission</span> untuk kontrol penuh tanpa akses root.
+        </p>
 
-    <button id="downloadBtn" class="btn btn-download">Download</button>
-    <a href="https://wa.me/6282225395087" class="btn btn-wa" target="_blank">WhatsApp</a>
-    <div class="note">*Hubungi WhatsApp untuk info lebih lanjut</div>
+        <a href="https://raw.githubusercontent.com/fanzoxiters-afk/download/refs/heads/main/maff%20nexus%20sedang%20dalam%20pembaruan.apk" class="btn btn-download" target="_blank">Download</a>
+        <a href="https://wa.me/6282225395087" class="btn btn-wa" target="_blank">WhatsApp</a>
+        <div class="note">*Hubungi WhatsApp untuk info lebih lanjut</div>
 
-    <div class="cards">
-        <div class="card">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/layers.png" alt="">
-            <div class="card-content">
-                <div class="card-title">Nexus Panel</div>
-                <div class="card-text">Menu mengambang multi touch untuk meningkatkan performa sensitiviy dan touch pada device.</div>
+        <div class="cards">
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/layers.png" alt="">
+                <div class="card-content">
+                    <div class="card-title">Nexus Panel</div>
+                    <div class="card-text">Menu mengambang multi touch untuk meningkatkan performa sensitiviy dan touch pada device.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/maintenance.png" alt="">
+                <div class="card-content">
+                    <div class="card-title">Nx-Modules</div>
+                    <div class="card-text">Fitur berbasi shell yang di gunakan untuk meningkatkan performance tanpa melakukan root dengan perizinan shizuku.</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="">
+                <div class="card-content">
+                    <div class="card-title">Nexus Settings</div>
+                    <div class="card-text">Fitur dengan pengaturan merubah performance device ke level maximum dengan menggunakan sistem Shizuku.</div>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/maintenance.png" alt="">
-            <div class="card-content">
-                <div class="card-title">Nx-Modules</div>
-                <div class="card-text">Fitur berbasi shell yang di gunakan untuk meningkatkan performance tanpa melakukan root dengan perizinan shizuku.</div>
-            </div>
+
+        <div class="changelog">
+            <h3>Changelog v4.2</h3>
+            <ul>
+                <li>⚡ Optimasi engine game booster</li>
+                <li>🛠 Perbaikan bug minor</li>
+                <li>🎯 Penambahan modul Nx-Settings</li>
+            </ul>
         </div>
-        <div class="card">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="">
-            <div class="card-content">
-                <div class="card-title">Nexus Settings</div>
-                <div class="card-text">Fitur dengan pengaturan merubah performance device ke level maximum dengan menggunakan sistem Shizuku.</div>
-            </div>
-        </div>
+
+        <footer>© 2025 Nexus Dev — All Rights Reserved</footer>
     </div>
-
-    <div class="changelog">
-        <h3>Changelog v4.2</h3>
-        <ul>
-            <li>⚡ Optimasi engine game booster</li>
-            <li>🛠 Perbaikan bug minor</li>
-            <li>🎯 Penambahan modul Nx-Settings</li>
-        </ul>
-    </div>
-
-    <footer>© 2025 Nexus Dev — All Rights Reserved</footer>
-</div>
-
-<script>
-const downloadBtn = document.getElementById('downloadBtn');
-const downloadLink = "https://raw.githubusercontent.com/fanzoxiters-afk/download/refs/heads/main/maff%20nexus%20sedang%20dalam%20pembaruan.apk";
-
-// cek status saat load halaman
-if(localStorage.getItem('nexus_downloaded-') === 'true') {
-    downloadBtn.disabled = true;
-    downloadBtn.innerText = "Limit download 0";
-}
-
-// klik tombol
-downloadBtn.addEventListener('click', function() {
-    if(localStorage.getItem('nexus_downloaded') === 'true') {
-        alert("Maff limit download anda 0");
-    } else {
-        // jalankan download
-        const a = document.createElement('a');
-        a.href = downloadLink;
-        a.download = downloadLink.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        localStorage.setItem('nexus_downloaded', 'true');
-        downloadBtn.disabled = true;
-        downloadBtn.innerText = "Limit download 0";
-    }
-});
-</script>
 </body>
 </html>
