@@ -12,18 +12,16 @@
   :root{
     --cyan:#00f7ff;
     --cyan-d:#00d4ff;
-    --ink:#000;
     --panel:#191919;
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;margin:0;padding:0}
   body{
-    margin:0;background:#000;color:#fff;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:#000;color:#fff;
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   }
-
-  /* layout wrapper biar compact & rapi */
   .wrap{max-width:520px;margin:0 auto}
 
-  /* HEADER kiri + logo N */
+  /* HEADER */
   .header{
     display:flex;align-items:center;gap:10px;
     padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);
@@ -38,16 +36,16 @@
   .header-title{font-size:16px;font-weight:600;line-height:1}
   .subheader{font-size:12px;color:#8b8b8b;line-height:1.2;margin-top:4px}
 
-  /* TITLE tengah */
+  /* TITLE */
   .title{margin:22px 0 6px;text-align:center;font-size:22px;font-weight:600}
   .subtitle{margin:0 0 16px;text-align:center;color:var(--cyan);font-size:13px;font-weight:500}
 
-  /* DESCRIPTION kecil */
+  /* DESCRIPTION */
   .description{
     text-align:center;font-size:11px;color:#cfcfcf;line-height:1.4;margin:0 20px 14px;
   }
 
-  /* BUTTONS lebih kecil (mirip GVR) */
+  /* BUTTONS */
   .btn-primary,.btn-secondary{
     display:block;width:48%;margin:0 auto 10px;text-align:center;
     padding:10px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;
@@ -62,11 +60,16 @@
   }
   .note{font-size:11px;color:#7a7a7a;text-align:center;margin-top:2px}
 
-  /* CARD – DIPERKECIL + STROKE CYAN TIPIS */
-  .cards{padding:8px 0 18px}
+  /* CARDS */
+  .cards{
+    padding:8px 0 18px;
+    display:flex;flex-direction:column;align-items:center;
+  }
   .card{
+    width:85%;max-width:400px;
     background:rgba(25,25,25,.9);
-    margin:12px 20px; padding:12px; border-radius:12px; text-align:center;
+    margin:10px 0;padding:12px;
+    border-radius:12px;text-align:center;
     border:1px solid rgba(0,247,255,.18);
     box-shadow:0 8px 22px rgba(0,247,255,.06), inset 0 0 0.5px rgba(255,255,255,.04);
   }
@@ -76,11 +79,6 @@
   }
   .card-title{font-size:14px;font-weight:600;margin:2px 0 4px}
   .card-text{font-size:11px;color:#cfcfcf;line-height:1.38;margin:0}
-
-  /* sedikit responsif */
-  @media (min-width:420px){
-    .btn-primary,.btn-secondary{width:44%}
-  }
 </style>
 </head>
 <body>
@@ -106,12 +104,11 @@
   </p>
 
   <!-- BUTTONS -->
-  <!-- Ganti link MediaFire di bawah dengan link aslimu -->
   <a href="https://www.mediafire.com/file/abcdefg/nexus.apk" class="btn-primary" target="_blank" rel="noopener">Download</a>
   <a href="https://wa.me/6282225395087" class="btn-secondary" target="_blank" rel="noopener">WhatsApp</a>
   <div class="note">*Hubungi WhatsApp untuk info lebih lanjut</div>
 
-  <!-- CARDS (LEBIH KECIL & KEREN) -->
+  <!-- CARDS -->
   <section class="cards">
     <article class="card">
       <img src="https://img.icons8.com/ios-filled/50/ffffff/layers.png" alt="">
