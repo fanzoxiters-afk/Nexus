@@ -1,229 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Panjox</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-<style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus — Official Download</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
 :root {
-  --cyan: #00f7ff;
-  --bg-dark: #0d0d0d;
-  --card-bg: rgba(26, 26, 26, 0.8);
-  --text-light: #ffffff;
-}
+        --cyan: #00f7ff;
+        --bg-dark: #121212;
+    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        canvas#particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 14px;
+        }
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }}
+@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  position: relative;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }}
+@keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
 
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
+            50% {
+                transform: scale(1.05);
+            }
 
-header {
-  text-align: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
-}
+            100% {
+                transform: scale(1);
+            }}
+@keyframes rotateIcon {
+            from {
+                transform: rotate(0deg);
+            }
 
-.logo-circle {
-  width: 80px;
-  height: 80px;
-  background: var(--cyan);
-  color: var(--bg-dark);
-  font-size: 2em;
-  font-weight: bold;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px auto;
-}
-
-header h1 {
-  font-size: 2em;
-  margin-bottom: 5px;
-}
-header h1 span {
-  color: var(--cyan);
-}
-header p {
-  color: #aaa;
-}
-
-.card {
-  background-color: var(--card-bg);
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  position: relative;
-  z-index: 1;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  transition: 0.2s;
-}
-
-.card i {
-  font-size: 2em;
-  color: var(--cyan);
-  min-width: 50px;
-  text-align: center;
-}
-
-.card-content {
-  flex: 1;
-}
-
-.card-content h3 {
-  margin-bottom: 5px;
-  font-size: 1.2em;
-}
-
-.card-content p {
-  color: #aaa;
-  font-size: 0.9em;
-  margin-bottom: 5px;
-}
-
-.card-content a {
-  color: var(--cyan);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.bio-extra {
-  margin-top: 30px;
-  max-width: 400px;
-  text-align: center;
-  color: #aaa;
-  font-size: 0.9em;
-  position: relative;
-  z-index: 1;
-}
-.bio-extra span {
-  color: var(--cyan);
-  font-weight: bold;
-}
-</style>
+            to {
+                transform: rotate(360deg);
+            }}
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            animation: slideDown 0.6s ease forwards;
+        }
+        .logo {
+            background: var(--cyan);
+            color: #000;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 6px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        .header-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .header-sub {
+            font-size: 11px;
+            color: #999;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 14px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .subtitle {
+            font-size: 12px;
+            color: var(--cyan);
+            text-align: center;
+            margin-bottom: 2px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .description {
+            font-size: 11px;
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 14px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: transform 0.2s ease,box-shadow 0.2s ease;
+        }
+        .btn-download {
+            background: var(--cyan);
+            color: #000;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .btn-download:hover {
+            box-shadow: 0 0 12px var(--cyan);
+        }
+        .btn-wa {
+            background: #222;
+            color: var(--cyan);
+        }
+        .btn-wa:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgba(0,247,255,0.4);
+        }
+        .note {
+            font-size: 10px;
+            color: #777;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: var(--bg-dark);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.5s forwards;
+        }
+        .card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        .card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .card:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+        .card img {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.4s ease;
+        }
+        .card:hover img {
+            animation: rotateIcon 0.6s linear;
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .card-text {
+            font-size: 10px;
+            color: #bbb;
+            line-height: 1.3;
+        }
+        .changelog {
+            background: #0a0a0a;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .changelog h3 {
+            font-size: 13px;
+            color: var(--cyan);
+            margin-bottom: 6px;
+        }
+        .changelog ul {
+            list-style: none;
+            font-size: 11px;
+            color: #bbb;
+            padding-left: 0;
+        }
+        .changelog li {
+            margin-bottom: 4px;
+        }
+        footer {
+            font-size: 10px;
+            color: #555;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #111;
+        }
+    </style>
 </head>
 <body>
+    <canvas id="particles"></canvas>
 
-<div id="particles-js"></div>
+    <div class="wrap">
+        <header class="header">
+            <div class="logo">
+                N
+            </div>
+            <div>
+                <div class="header-title">
+                    NEXUS OFFCIAL
+                    <div class="header-sub">
+                        Panjox.dev
+                    </div>
+                </div>
+            </header>
 
-<header>
-  <div class="logo-circle">P</div>
-  <h1>Panjox <span>Contact</span></h1>
-  <p>Get in touch with us for support or inquiries</p>
-</header>
+            <h1 class="title">GNexus VER-4</h1>
+            <div class="subtitle">
+                PanjoxNXS
+            </div>
 
-<!-- 1. WhatsApp -->
-<div class="card">
-  <i class="fab fa-whatsapp"></i>
-  <div class="card-content">
-    <h3>WhatsApp</h3>
-    <p>Quick response via WhatsApp</p>
-    <a href="https://wa.me/1234567890" target="_blank">WhatsApp Channel →</a>
-  </div>
-</div>
+            <p class="description">
+                Nexus adalah aplikasi yang di rancang khusus untuk meningkatkan performance dan meningkatkan pengalaman bermain anda dengan menggunakan <span style="color:var(--cyan)">sistem Shizuku Permission</span> untuk kontrol penuh tanpa akses root.
+            </p>
 
-<!-- 2. Discord -->
-<div class="card">
-  <i class="fab fa-discord"></i>
-  <div class="card-content">
-    <h3>Discord</h3>
-    <p>Join our community</p>
-    <a href="https://discord.gg/yourinvite" target="_blank">Join Discord →</a>
-  </div>
-</div>
+            <a href="https://www.mediafire.com/file/abcdefg/nexus.apk" class="btn btn-download" target="_blank">Download</a>
+            <a href="https://wa.me/6282225395087" class="btn btn-wa" target="_blank">WhatsApp</a>
+            <div class="note">
+                *Hubungi WhatsApp untuk info lebih lanjut
+            </div>
 
-<!-- 3. Grup WhatsApp -->
-<div class="card">
-  <i class="fab fa-whatsapp"></i>
-  <div class="card-content">
-    <h3>Grup WhatsApp</h3>
-    <p>Join our official WhatsApp group</p>
-    <a href="https://chat.whatsapp.com/yourgroupinvite" target="_blank">Open Group →</a>
-  </div>
-</div>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/layers.png" alt="">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Nexus Panel
+                        </div>
+                        <div class="card-text">
+                            Menu mengambang multi touch untuk meningkatkan performa sensitiviy dan touch pada device.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/maintenance.png" alt="">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Nx-Modules
+                        </div>
+                        <div class="card-text">
+                            Fitur berbasi shell yang di gunakan untuk meningkatkan performance tanpa melakukan root dengan perizinan shizuku.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Nexus Settings
+                        </div>
+                        <div class="card-text">
+                            Fitur dengan pengaturan merubah performance device ke level maximum dengan menggunakan sistem Shizuku.
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- 4. Download APK Free -->
-<div class="card">
-  <i class="fas fa-download"></i>
-  <div class="card-content">
-    <h3>Download APK Free</h3>
-    <p>Get the latest APK for free</p>
-    <a href="#" target="_blank">Download →</a>
-  </div>
-</div>
+            <div class="changelog">
+                <h3>Changelog v4.2</h3>
+                <ul>
+                    <li>⚡ Optimasi engine game booster</li>
+                    <li>🛠 Perbaikan bug minor</li>
+                    <li>🎯 Penambahan modul Nx-Settings</li>
+                </ul>
+            </div>
 
-<!-- 5. Buy Premium -->
-<div class="card">
-  <i class="fas fa-star"></i>
-  <div class="card-content">
-    <h3>Buy Premium</h3>
-    <p>Unlock premium features</p>
-    <a href="#" target="_blank">Buy Now →</a>
-  </div>
-</div>
+            <footer>
+                © 2025 Nexus Dev — All Rights Reserved
+            </footer>
+        </div>
 
-<div class="bio-extra">
-  <p>Follow us on <span>social media</span> for updates, tips, and exclusive content!</p>
-</div>
+        <script>
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let particlesArray;
+            const colors = ['#00f7ff', '#00e0ff', '#00cfff'];
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-particlesJS("particles-js", {
-  "particles": {
-    "number": { "value": 60 },
-    "color": { "value": "#00f7ff" },
-    "shape": { "type": "circle" },
-    "opacity": { "value": 0.5 },
-    "size": { "value": 3 },
-    "line_linked": { "enable": true, "distance": 150, "color": "#00f7ff", "opacity": 0.4, "width": 1 },
-    "move": { "enable": true, "speed": 2 }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": { "enable": true, "mode": "repulse" },
-      "onclick": { "enable": true, "mode": "push" }
-    },
-    "modes": {
-      "repulse": { "distance": 100 },
-      "push": { "particles_nb": 4 }
-    }
-  },
-  "retina_detect": true
-});
-</script>
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-</body>
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                init();
+            });
+
+            class Particle {
+                constructor(x, y, size, color, speedX, speedY) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = size;
+                    this.color = color;
+                    this.speedX = speedX;
+                    this.speedY = speedY;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.size > 0.2) this.size -= 0.02;
+                }
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                particlesArray = [];
+                for (let i = 0; i < 60; i++) {
+                    const size = Math.random() * 2 + 1;
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const speedX = (Math.random() - 0.5) * 0.5;
+                    const speedY = (Math.random() - 0.5) * 0.5;
+                    particlesArray.push(new Particle(x, y, size, color, speedX, speedY));
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                    if (particlesArray[i].size <= 0.2) {
+                        const x = Math.random() * canvas.width;
+                        const y = Math.random() * canvas.height;
+                        const size = Math.random() * 2 + 1;
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        const speedX = (Math.random() - 0.5) * 0.5;
+                        const speedY = (Math.random() - 0.5) * 0.5;
+                        particlesArray[i] = new Particle(x, y, size, color, speedX, speedY);
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            init();
+            animate();
+        </script>
+    </body>
 </html>
