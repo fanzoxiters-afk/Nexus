@@ -119,7 +119,7 @@ const downloadBtn = document.getElementById('downloadBtn');
 const downloadLink = "https://raw.githubusercontent.com/fanzoxiters-afk/download/refs/heads/main/maff%20nexus%20sedang%20dalam%20pembaruan.apk";
 
 // cek status saat load halaman
-if(localStorage.getItem('nexus_downloaded-test') === 'true') {
+if(localStorage.getItem('nexus_downloaded-') === 'true') {
     downloadBtn.disabled = true;
     downloadBtn.innerText = "Limit download 0";
 }
